@@ -1,0 +1,27 @@
+.main {
+  width: 80%;
+  height: 80%;
+  border: 1px solid red;
+}
+
+.chart {
+  border: 1px solid green;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.parent-group {
+  border: 1px solid blue;
+}
+
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+/******************************/
