@@ -121,6 +121,13 @@ function resize() {
   let height = parseInt(d3.select(".chart").style("width"))
               - margin.top - margin.bottom;
 
+  /* Curran Kelleher
+  http://blockbuilder.org/curran/3a68b0c81991e2e94b19 */
+  let chartMain = document.getElementsByClassName("main")[0];
+  let w = chartMain.clientWidth;
+  let h = chartMain.clientHeight;
+  console.log(w, h);
+  /********* above code Curran Kelleher **********/
 
   xScale.range([0, width])
               .padding(.2); // padding between the discreet bands
