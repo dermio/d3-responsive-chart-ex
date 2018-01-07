@@ -56,7 +56,7 @@ let parent = svg.append("g")
 // X-axis label
 parent.append("g")
       .attr("class", "x-axis")
-      .attr("transform", `translate(0 ${height})`)
+      .attr("transform", `translate(0, ${height})`)
       .call(xAxis);
 
 // Y-axis label
@@ -113,3 +113,22 @@ LeBeck
 d3.select(window).on('resize', resize);
 
 */
+
+
+function resize() {
+  let width = parseInt(d3.select(".chart").style("width"))
+              - margin.left - margin.right;
+  let height = parseInt(d3.select(".chart").style("width"))
+              - margin.top - margin.bottom;
+
+
+  xScale.range([0, width])
+              .padding(.2); // padding between the discreet bands
+
+  parent.select(".x-axis")
+        .attr("transform", `translate(0, ${height})`)
+        .call(xAxis);
+}
+
+d3.select(window).on("resize", resize);
+resize();
