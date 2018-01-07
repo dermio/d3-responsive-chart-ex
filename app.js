@@ -124,10 +124,21 @@ function resize() {
 
   xScale.range([0, width])
               .padding(.2); // padding between the discreet bands
+  yScale.rangeRound([height, 0]).padding(0.1);
 
   parent.select(".x-axis")
         .attr("transform", `translate(0, ${height})`)
         .call(xAxis);
+
+  parent.select(".y-axis")
+        .call(yAxis);
+
+  parent.selectAll(".bar")
+        .attr("width", function(d) {return xScale.typeHR})
+        .attr("y", function(d) {return yScale.heartRate})
+
+        // This last part might not be quite correct, Elias
+        .attr("height", yScale.bandwidth());
 }
 
 d3.select(window).on("resize", resize);
